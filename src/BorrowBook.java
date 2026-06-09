@@ -1,12 +1,42 @@
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class BorrowBook extends javax.swing.JFrame {
 
+private void loadBorrowTable(){
+DefaultTableModel model=(DefaultTableModel) tblBorrow.getModel();
+model.setRowCount(0);
+    try{
+File f=new File("books.txt");
+Scanner sc=new Scanner(f);
+while(sc.hasNextLine()){
+String line=sc.nextLine();
+String[] data=line.split(",");
+
+   
+if(data.length>=3){
+model.addRow(new Object[]{
+data[0],data[1],data[2]
+} );
+}
+}
+sc.close();
+}catch(IOException ex) {
+               Logger.getLogger(AddBook.class.getName()).log(Level.SEVERE, null, ex);
+           } }
+
+
     public BorrowBook() {
         initComponents();
-    }
+      loadBorrowTable();
+}
 
    
     @SuppressWarnings("unchecked")
@@ -18,7 +48,7 @@ public class BorrowBook extends javax.swing.JFrame {
         btnVerify = new javax.swing.JButton();
         btnConfirmBorrowing = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblBorrow = new javax.swing.JTable();
         txtReturnDate = new javax.swing.JTextField();
         lblStudentID = new javax.swing.JLabel();
         lblBookID = new javax.swing.JLabel();
@@ -57,7 +87,7 @@ public class BorrowBook extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblBorrow.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -65,7 +95,7 @@ public class BorrowBook extends javax.swing.JFrame {
                 "Book Titel", "Borrowing Date", "Status"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblBorrow);
 
         txtReturnDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtReturnDate.setText("Return Date :");
@@ -250,9 +280,9 @@ public class BorrowBook extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblBookID;
     private javax.swing.JLabel lblStudentID;
+    private javax.swing.JTable tblBorrow;
     private javax.swing.JTextField txtBookID;
     private javax.swing.JTextField txtReturnDate;
     private javax.swing.JTextField txtStudentID;

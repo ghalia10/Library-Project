@@ -203,7 +203,7 @@ public class AddBook extends javax.swing.JFrame {
    }
     
      try{
-     FileWriter fw=new FileWriter("book.txt",true);
+     FileWriter fw=new FileWriter("books.txt",true);
      PrintWriter pw=new PrintWriter(fw);
      pw.println(
      txtBookTitel.getText()+","+
@@ -309,3 +309,6 @@ public class AddBook extends javax.swing.JFrame {
     private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables
 }
+    
+
+        
