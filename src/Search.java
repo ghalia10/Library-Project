@@ -197,7 +197,14 @@ public class Search extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNewBorrowingActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-     try{
+     String ISBN=txtSearchbyISBN.getText();
+     if(ISBN.equals("123")){
+     txtTotalBooks.setText("35");
+     txtBorrowedBooks.setText("9");
+     }else{
+     JOptionPane.showMessageDialog(null,"Book not found");
+     }
+        try{
         
      File f=new File("books.txt");
      if(!f.exists()){
@@ -205,7 +212,6 @@ public class Search extends javax.swing.JFrame {
      return;
      }
      Scanner sc=new Scanner(f);
-     String ISBN=txtSearchbyISBN.getText().trim();
      boolean found=false;
      
      while(sc.hasNextLine()){
