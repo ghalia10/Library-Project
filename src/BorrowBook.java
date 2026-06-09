@@ -1,6 +1,6 @@
 
 import javax.swing.JOptionPane;
-
+import javax.swing.*;
 
 public class BorrowBook extends javax.swing.JFrame {
 
@@ -22,6 +22,13 @@ public class BorrowBook extends javax.swing.JFrame {
         txtReturnDate = new javax.swing.JTextField();
         lblStudentID = new javax.swing.JLabel();
         lblBookID = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        MenILogout = new javax.swing.JMenuItem();
+        MenIExit = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        MenISearch = new javax.swing.JMenuItem();
+        MenIAddBook = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Library System");
@@ -69,6 +76,48 @@ public class BorrowBook extends javax.swing.JFrame {
         lblBookID.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblBookID.setText("Book ID :");
 
+        jMenu1.setText("File");
+
+        MenILogout.setText("Logout");
+        MenILogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenILogoutActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenILogout);
+
+        MenIExit.setText("Exit");
+        MenIExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenIExitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenIExit);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Books");
+
+        MenISearch.setText("Search");
+        MenISearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenISearchActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenISearch);
+
+        MenIAddBook.setText("Add Book");
+        MenIAddBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenIAddBookActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenIAddBook);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,7 +162,7 @@ public class BorrowBook extends javax.swing.JFrame {
                         .addComponent(txtReturnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(btnConfirmBorrowing, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -132,6 +181,28 @@ public class BorrowBook extends javax.swing.JFrame {
     private void btnConfirmBorrowingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmBorrowingActionPerformed
        JOptionPane.showMessageDialog(null, "Borrowing Confirmed");
     }//GEN-LAST:event_btnConfirmBorrowingActionPerformed
+
+    private void MenISearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenISearchActionPerformed
+      Search S=new Search();
+        S.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_MenISearchActionPerformed
+
+    private void MenIAddBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenIAddBookActionPerformed
+      AddBook A=new AddBook();
+       A.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_MenIAddBookActionPerformed
+
+    private void MenILogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenILogoutActionPerformed
+      Login L=new Login();
+      L.setVisible(true);
+      dispose();
+    }//GEN-LAST:event_MenILogoutActionPerformed
+
+    private void MenIExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenIExitActionPerformed
+      System.exit(0);
+    }//GEN-LAST:event_MenIExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,8 +240,15 @@ public class BorrowBook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MenIAddBook;
+    private javax.swing.JMenuItem MenIExit;
+    private javax.swing.JMenuItem MenILogout;
+    private javax.swing.JMenuItem MenISearch;
     private javax.swing.JButton btnConfirmBorrowing;
     private javax.swing.JButton btnVerify;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblBookID;

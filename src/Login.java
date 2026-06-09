@@ -80,8 +80,8 @@ import java.awt.event.*;
                 if(txtUserName.getText().isEmpty()||txtPassword.getText().isEmpty()){
                 JOptionPane.showMessageDialog( null,"Pleas fill all fields");
                 }else{
-                Search S = new Search();
-                S.setVisible(true);
+                AddBook A = new AddBook();
+                A.setVisible(true);
                 dispose();
                 
                 }
